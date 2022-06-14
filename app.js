@@ -57,18 +57,25 @@ console.log(poste, anciens, heureTravaille,personnel);
 
 // Récupère le contenu du localStorage
 function getMembre() {
-  return localStorage.getItem('membres');
+  return localStorage.getItem('membres') ? JSON.parse(localStorage.getItem('membres')) : [];
 }
 // console.log(getMembre());
 
 // Affiche les produits dans le tableau
-function showProductsInTable() {
-  let   membres = getMembre();
+(
+function showMembresInTable() {
+  const membres = getMembre();
   const table = document.getElementById('tableContent');
+  
   membres.forEach((item) => {
-    console.log("items :", item);
+    let row = table.insertRow();
+    let id = row.insertCell(0);
+    let name = row.insertCell(1);
+    
+    id.innerHTML = 1;
+    name.innerHTML = item.name
   })
   
 }
+)()
 
-showProductsInTable()
