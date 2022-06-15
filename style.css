@@ -2,10 +2,9 @@ body {
   background-color: #f5f7f9;
 }
 
-
 /* Products list */
 .white_card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 15px;
   margin-bottom: 80px;
 }
@@ -18,7 +17,7 @@ body {
   padding: 5px 30px 25px 30px;
 }
 
-tr{
+tr {
   border: hidden;
 }
 
@@ -37,7 +36,6 @@ tbody tr td img {
   color: #e63946;
 }
 
-
 /* Form */
 .formProduct {
   display: none;
@@ -46,14 +44,14 @@ tbody tr td img {
 
 /* Input */
 .common_input input {
-height: 38px;
-background-color: transparent;
-padding: 10px 8px;
-color: #81879F;
-font-size: 14px;
-border-radius: 10px;
-border: 1px solid #E5ECFF;
-margin-bottom: 18px
+  height: 38px;
+  background-color: transparent;
+  padding: 10px 8px;
+  color: #81879f;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #e5ecff;
+  margin-bottom: 18px;
 }
 
 /* Select */
@@ -61,14 +59,14 @@ margin-bottom: 18px
   border-radius: 10px;
   height: 36px;
   font-size: 14px;
-  color: #81879F;
-  margin-bottom: 18px
+  color: #81879f;
+  margin-bottom: 18px;
 }
 
 .nice_Select2.nice_Select_line {
   background: transparent;
   padding: 0 8px;
-  border: 1px solid #E5ECFF;
+  border: 1px solid #e5ecff;
 }
 
 .btn-add {
@@ -76,6 +74,51 @@ margin-bottom: 18px
 }
 
 .btn-cancel {
-  background-color: #ffd166
+  background-color: #ffd166;
+}
+carousel {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.carousel-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide {
+  display: flex;
+  height: 450px;
+  width: auto;
+}
+
+#precBtn {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  z-index: 10;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  background: #e63946 3px;
+}
+
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  z-index: 10;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  background: #e63946 3px;
+}

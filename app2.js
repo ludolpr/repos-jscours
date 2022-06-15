@@ -1,56 +1,37 @@
-// Produits Base de donnée statique
-const categoryList = ["Kekra", "Damso", "Laylow", "Jazzy Bazz", "Nekfeu"];
+const imagesList = document.querySelectorAll(".carousel-slide img");
 
-const rappeur = document.getElementById('category');
 
-categoryList.forEach((element) => {
-  let option = document.createElement("option");
-  option.text = element;
-  option.value = element;
-  rappeur.add(option);
-}
-)
+let compteur = 0;
 
-function addNewProduct() {
-  // Récupère les valeurs du formulaire
-  const name = document.getElementById('name').value;
-  const category = document.getElementById('category').value;
-  const price = document.getElementById('price').value;
-  const quantity = document.getElementById('quantity').value;
-
-  // Génère un id pour le produit
-  const id = new Date().valueOf();
-
-  // Nouveau produit
-  const product = {
-    id: id,
-    name: name,
-    category: category,
-    price: price,
-    quantity: quantity
+function rotationImages() { 
+  // La boucle for masque les images
+  for (let img = 0; img < imagesList.length;img++){
+    imagesList[img].style.display = "none";
+    // la boucle envoie les trois images en display none  
   }
-  console.log("new product :", product)
-
-
-  // Condition Terniaire
-  let productsList = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
-  productsList.push(product);
-  
-  // La valeur doit etre convertit en string, on ne peux pas stocker d'object ni d'array.
-  localStorage.setItem("products", JSON.stringify(productsList));
+  // une images aparrai avec display block
+  imagesList[compteur].style.display = "block";
 }
-
-// Récupère le contenu du localStorage
-function getProducts() {
-  return localStorage.getItem('products')? JSON.parse(localStorage.getItem('products')) : [];
+nextBtn.addEventListener('click',() =>{
+  // Si le compteur correspond à 2 (imagesList.length - 1) alors le compteur vaudra 0 
+  if (compteur == imagesList.length - 1) {
+    compteur = 0;
+  } else {
+  compteur++;
 }
+precBtn.addEventListener('click', () => {
+  // Si le compteur vaut 0 alors il doit passer à 2, sinon compteur vaudra -1 .
+  if (compteur == 0) {
+    compteur = imagesList.length - 1;
+  } else {
+    compteur--;
+  }
+   
+  rotationImages();
+});
+  // Lance la function pour raffraîchir
+  rotationImages();
+})  
+// Exécute la function
+rotationImages()
 
-// Affiche les produits dans le tableau
-function showProductsInTable() {
-  const products = getProducts(); // Faut il enlever le s de products
-  const table = document.getElementById("tableContent");
-
-  products.forEach((item) => {
-    console.log("items :", item);
-  })
-}
